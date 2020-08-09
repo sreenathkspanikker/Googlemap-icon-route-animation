@@ -1,0 +1,223 @@
+html, body{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px; 
+    overflow: hidden;
+}
+
+a{
+    transition: all ease .4s;
+}
+
+.patrol-wrap{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: normal;
+}
+
+.box{
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.box .box-in{
+    width: 300px;
+    height: 100vh;
+    padding: 15px;
+    background: #f6f6f6;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    transition: all ease 0.3s;
+}
+
+
+.box.closed .box-in{
+    width: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.box.closed .box-in .card{
+    visibility: hidden;
+}
+
+.card .card-body h4{
+    font-size: 16px;
+    font-weight: 400
+    padding-bottom: 10px;
+}
+
+.card .card-body p{
+    font-size: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.card.card-notification{
+    background: #1da7ff;
+    color: white;
+}
+
+.card.card-notification h3{
+    font-size: 14px;
+    margin: 0;
+}
+
+.card.card-notification .card-body{
+    padding: 10px 12px;
+}
+
+.info{
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100px;
+    background: orange;
+    margin-right: 12px;
+}
+
+.map-wrap{
+    width: 100%;
+    height: 100vh; 
+    background: #333;
+    position: relative;
+}
+.map-header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+}
+
+.map-header span{
+    display: inline-block;
+    padding: 9px 25px;
+    background: #f6f6ff;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+}
+
+span.notification{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: #1da7ff;
+    color: white;
+    font-size: 14px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 15px 60px;
+    padding: 9px 25px;
+    max-width: 300px;
+    display: none;
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+span.notification.show{
+    display: block;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+#googleMap,
+#map_canvas{
+    width: 100%;
+    height: 100vh;
+}
+
+/*arrow*/
+.toggle{
+    display: block;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f6f6f6;
+    text-align: right;
+    padding: 0 15px;
+    z-index: 1;
+    margin-left: -48px;
+    line-height: 66px;
+    color: #333;
+}
+
+.toggle:hover{
+    background: #1da7ff;
+    color: white;
+}
+.icon{
+    display: inline-block;
+}
+.arrow-right.icon{
+    position: relative;
+}
+.arrow-right.icon::before {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-top: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+
+.btn-primary{
+    display: block;
+    font-size: 14px;
+    padding: 6px 15px;
+    width: 100%;
+}
+
+.btn-md{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 15px auto;
+    z-index: 3;
+    max-width: 75%;
+}
+
+@media only screen and (max-width: 768px) {
+    .box{
+        display: none;
+    }
+    .btn-md{
+        display: block;
+    }
+}
+
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
